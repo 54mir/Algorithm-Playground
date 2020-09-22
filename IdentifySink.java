@@ -1,4 +1,4 @@
-class identifySink {
+class IdentifySink {
     public int findJudge(int N, int[][] trust) {
         if (trust.length == 0 && N == 1)
             return 1;
