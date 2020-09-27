@@ -12,7 +12,6 @@ public class CycleDetectionDFS {
             nc = grid[0].length;
             int[] edgeList = new int[nr * nc - 1];
 
-
             int id;
             boolean result;
             for (int row = 0; row < nr; row++){
@@ -25,10 +24,8 @@ public class CycleDetectionDFS {
                     }
                 }
             }
-
             return false;
         }
-
 
         public boolean dfs(int row, int col, char[][] grid, char c, int parent){
             int id = getID(row, col);
@@ -56,14 +53,8 @@ public class CycleDetectionDFS {
                 result = dfs(row, col + 1, grid, grid[row][col], id);
                 if (result) return result;
             }
-
-
             return false;
-
-
-
         }
-
 
         public int getID(int row, int col){
             return ((row * nc) + col);

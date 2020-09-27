@@ -1,12 +1,9 @@
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class CycleDetectionUnionFind {
     int nc, nr;
     int[] unionFind;
     char[][] grid;
-
 
     public boolean containsCycle(char[][] grid) {
         nr = grid.length;
@@ -14,7 +11,6 @@ public class CycleDetectionUnionFind {
         this.grid = grid;
         unionFind = new int[nr * nc];
         Arrays.fill(unionFind, -1);
-
 
         int id;
         boolean right, down;
@@ -56,10 +52,6 @@ public class CycleDetectionUnionFind {
             return false;
         }
     }
-
-
-
-
 
     public int getID(int row, int col){
         return ((row * nc) + col);
