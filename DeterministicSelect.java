@@ -7,27 +7,33 @@
 import java.util.Arrays;
 
 public class DeterministicSelect {
-    int[] arr;
 
-    public int findPivot(int[] arr, int k){
+
+    public int findElement(int[] arr, int k){
+        int pivot = findPivot(arr);
+
+        return 0;
+
+    }
+
+    public int findPivot(int[] arr){
         if (arr.length == 1) return arr[0];
-        this.arr = arr;
         int[] medians = new int[arr.length / 5 + 1];
 
         int median = 0, right = 0, j = 0;
         for(int i = 0; i < arr.length; i += 5){
             right = Math.min(i + 5, arr.length);
-            median = findMedians(i, right);
+            median = findMedians(arr, i, right);
             medians[j++] = median;
         }
 
 
-        return findPivot(medians, k/10);
+        return findPivot(medians);
     }
 
-    public int findMedians(int left, int right){
+    public int findMedians(int[] arr, int left, int right){
         int width = right - left;
-        int[] temp = new int[width];
+        int[] temp;
         temp = Arrays.copyOfRange(arr, left, right);
         Arrays.sort(temp);
         return temp[(width) / 2];
@@ -38,7 +44,7 @@ public class DeterministicSelect {
         int[] test1 = {1, 3, 6, -2, 2, 4, 20, 10, 11, 1, 15, 8, 21, 0, 50, 51};
         DeterministicSelect ds = new DeterministicSelect();
 
-        System.out.println(ds.findPivot(test1, 5));
+        System.out.println(ds.findElement(test1, 5));
 
 
     }
